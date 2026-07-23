@@ -1,250 +1,310 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>פלג גת | חומרי בניין והובלות</title>
-  <style>
-    :root {
-      --primary: #d97706; /* כתום בנייה חם */
-      --primary-hover: #b45309;
-      --bg: #0f172a; /* כחול-אפור כהה מודרני */
-      --card-bg: #1e293b;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-      --accent: #22c55e; /* ירוק ווצאפ */
-      --accent-hover: #16a34a;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeleGaT - גת אדום שחוט ומרוכז</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-cream: #f4ebd0;
+            --card-bg: #f9f4e8;
+            --border-color: #cbb892;
+            --text-red: #7a1c1c;
+            --text-green: #2d5a27;
+            --text-dark: #3a2e2b;
+            --whatsapp-green: #25d366;
+            --whatsapp-green-hover: #1eb957;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Rubik', sans-serif;
+        }
 
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.5;
+            background-image: radial-gradient(#d8c7a1 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
 
-    /* Header */
-    header {
-      background-color: rgba(30, 41, 59, 0.8);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        /* Container */
+        .wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
 
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--primary);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+        /* Header / Logo */
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    /* Main Container */
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-      width: 100%;
-      flex: 1;
-    }
+        .logo-box {
+            display: inline-block;
+            background: #fdfbf7;
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            padding: 15px 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
 
-    /* Hero Section */
-    .hero {
-      text-align: center;
-      margin-bottom: 3rem;
-      padding: 3rem 1rem;
-      background: linear-gradient(180deg, rgba(217, 119, 6, 0.1) 0%, rgba(15, 23, 42, 0) 100%);
-      border-radius: 1.5rem;
-    }
+        .logo-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--text-red);
+            line-height: 1;
+        }
 
-    .hero h1 {
-      font-size: 2.8rem;
-      font-weight: 900;
-      margin-bottom: 1rem;
-      color: var(--text);
-    }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(180deg, rgba(244, 235, 208, 0.4) 0%, rgba(244, 235, 208, 0.95) 100%), 
+                        url('WhatsApp Image 2024.jpg') center/cover no-repeat;
+            border-radius: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 10px 25px rgba(58, 46, 43, 0.1);
+            margin-bottom: 30px;
+        }
 
-    .hero p {
-      font-size: 1.25rem;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 2rem;
-    }
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--text-red);
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
 
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+        .main-subtitle {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--text-green);
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
 
-    .btn {
-      padding: 0.8rem 1.8rem;
-      font-size: 1.1rem;
-      font-weight: 700;
-      border-radius: 9999px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+        .slogan {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-red);
+            margin-bottom: 25px;
+        }
 
-    .btn-primary {
-      background-color: var(--primary);
-      color: white;
-    }
+        /* Buttons */
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--whatsapp-green);
+            color: #ffffff;
+            font-size: 1.4rem;
+            font-weight: 800;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
+            transition: all 0.2s ease;
+            border: 2px solid #ffffff;
+        }
 
-    .btn-primary:hover {
-      background-color: var(--primary-hover);
-      transform: translateY(-2px);
-    }
+        .whatsapp-btn:hover {
+            background-color: var(--whatsapp-green-hover);
+            transform: translateY(-2px);
+        }
 
-    .btn-whatsapp {
-      background-color: var(--accent);
-      color: white;
-    }
+        /* 4 Features Row */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
 
-    .btn-whatsapp:hover {
-      background-color: var(--accent-hover);
-      transform: translateY(-2px);
-    }
+        .feature-item {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+        }
 
-    /* Grid Section */
-    .section-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
+        .feature-icon {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            display: block;
+        }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-bottom: 4rem;
-    }
+        .feature-item h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-red);
+            margin-bottom: 5px;
+        }
 
-    .card {
-      background-color: var(--card-bg);
-      border-radius: 1rem;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
+        .feature-item p {
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
-    }
+        /* Pricing Card */
+        .price-box {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
 
-    .card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-    }
+        .price-box h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
 
-    .card-content {
-      padding: 1.5rem;
-    }
+        .price-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--text-green);
+            line-height: 1;
+            margin-bottom: 15px;
+        }
 
-    .card-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
+        .price-details {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color);
+        }
 
-    .card-desc {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
+        .price-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
 
-    /* Footer */
-    footer {
-      background-color: #090d16;
-      padding: 2rem;
-      text-align: center;
-      color: var(--text-muted);
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
+        /* Delivery & Contact Section */
+        .delivery-box {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+        }
 
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-      .hero p {
-        font-size: 1rem;
-      }
-    }
-  </style>
+        .map-img {
+            width: 100%;
+            max-width: 650px;
+            border-radius: 12px;
+            border: 2px solid var(--border-color);
+            margin: 20px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title { font-size: 2.5rem; }
+            .main-subtitle { font-size: 2.2rem; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .price-details { flex-direction: column; gap: 10px; }
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <a href="#" class="logo">🏗️ פלג גת</a>
-  </header>
+    <div class="wrapper">
+        <!-- Header / Logo -->
+        <header>
+            <div class="logo-box">
+                <div class="logo-title">PeleGaT</div>
+            </div>
+        </header>
 
-  <main>
-    <section class="hero">
-      <h1>חומרי בניין והובלות ברמה הגבוהה ביותר</h1>
-      <p>אספקה מהירה, שירות מקצועי ומחירים ללא תחרות. כל מה שאתם צריכים לפרויקט הבא שלכם במקום אחד.</p>
-      
-      <div class="cta-buttons">
-        <a href="https://wa.me/" class="btn btn-whatsapp" target="_blank">
-          💬 צור קשר ב-WhatsApp
-        </a>
-        <a href="tel:" class="btn btn-primary">
-          📞 התקשר עכשיו
-        </a>
-      </div>
-    </section>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1 class="main-title">גת אדום</h1>
+            <h2 class="main-subtitle">סחוט ומרוכז</h2>
+            <div class="slogan">➻ מיץ שמאיר לך את הטבע – ומשאיר אותך דלוק ➻</div>
+            <a href="https://wa.me/972544603061?text=%D7%90%D7%94%D7%9C%D7%9F%20%D7%A4%D7%9C%D7%90%D7%92%D7%AA%2C%20%D7%90%D7%A9%D7%9D%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%9E%D7%9A%20%D7%92%D7%AA" class="whatsapp-btn" target="_blank">
+                📱 הזמן עכשיו ב-WhatsApp
+            </a>
+        </section>
 
-    <h2 class="section-title">השירותים והמוצרים שלנו</h2>
+        <!-- 4 Features (טבעי, אנרגיה, שחוט, טעם) -->
+        <section class="features-grid">
+            <div class="feature-item">
+                <span class="feature-icon">🌱</span>
+                <h3>טהור וטבעי</h3>
+                <p>ללא תוספות וללא חומרים משמרים</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">☀️</span>
+                <h3>אנרגיה מהטבע</h3>
+                <p>מלא בוויטמינים וערכים טבעיים</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🍁</span>
+                <h3>סחוט ומרוכז</h3>
+                <p>משומר בעדינות לשמירה על הערכים</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🍃</span>
+                <h3>טעם עשיר</h3>
+                <p>מתוק-חמצמץ ומלא בחיוניות</p>
+            </div>
+        </section>
 
-    <section class="grid">
-      <!-- כרטיסייה 1: תמונת מפת חלוקה/הובלות -->
-      <div class="card">
-        <img src="delivery-map.jpg" alt="מפת חלוקה והובלות" onerror="this.src='https://via.placeholder.com/400x220?text=%D7%90%D7%A1%D7%A4%D7%A7%D7%94+%D7%95%D7%94%D7%95%D7%91%D7%9C%D7%95%D7%AA'">
-        <div class="card-content">
-          <h3 class="card-title">הובלות ואזורי חלוקה</h3>
-          <p class="card-desc">אספקת חומרים עד אתר הבנייה שלכם בלוחות זמנים מדויקים ובכל אזור המרכז והדרום.</p>
-        </div>
-      </div>
+        <!-- הגדלים והמחירים -->
+        <section class="price-box">
+            <h2>גדולים ומחירים</h2>
+            <div class="price-number">₪90 לליטר</div>
+            
+            <div class="price-details">
+                <div class="price-detail-item">
+                    <span>🍾</span>
+                    <span>1.5L (ליטר וחצי)</span>
+                </div>
+                <div class="price-detail-item">
+                    <span>🧺</span>
+                    <span>מינימום הזמנה: 4 ליטר</span>
+                </div>
+                <div class="price-detail-item">
+                    <span>🚚</span>
+                    <span>משלוחים לכל הארץ</span>
+                </div>
+            </div>
+        </section>
 
-      <!-- כרטיסייה 2: תמונה כללית/ווצאפ -->
-      <div class="card">
-        <img src="WhatsApp Image 2024.jpg" alt="פלג גת חומרי בניין" onerror="this.src='https://via.placeholder.com/400x220?text=%D7%97%D7%95%D7%9E%D7%A8%D7%99+%D7%91%D7%A0%D7%99%D7%99%D7%9F'">
-        <div class="card-content">
-          <h3 class="card-title">חומרי בניין איכותיים</h3>
-          <p class="card-desc">מגוון רחב של חומרים, גבס, מלט, כלים וציוד היקפי מקצועי לכל סוגי העבודות.</p>
-        </div>
-      </div>
-    </section>
-  </main>
+        <!-- אזורי משלוחים וצור קשר -->
+        <section class="delivery-box">
+            <h2 style="color: var(--text-red); font-size: 2rem; font-weight: 900;">🏎️ צור קשר והזמנות</h2>
+            <p style="font-weight: 700; margin-top: 5px;">להזמנות, שאלות או כל בקשה – אנחנו כאן בשבילכם</p>
+            
+            <img src="delivery-map.jpg" alt="מפת משלוחים פלא-גת" class="map-img">
 
-  <footer>
-    <p>© כל הזכויות שמורות לפלג גת - חומרי בניין והובלות</p>
-  </footer>
+            <div>
+                <a href="https://wa.me/972544603061?text=%D7%90%D7%94%D7%9C%D7%9F%20%D7%A4%D7%9C%D7%90%D7%92%D7%AA%2C%20%D7%90%D7%A9%D7%9D%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%9E%D7%9A%20%D7%92%D7%AA" class="whatsapp-btn" target="_blank">
+                    💬 +972 54-460-3061
+                </a>
+            </div>
+        </section>
+    </div>
 
 </body>
 </html>
