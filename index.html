@@ -1,493 +1,360 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PeleGaT | גת אדום סחוט ומרוכז</title>
-  
-  <!-- תגיות לשיתוף מושלם ב-WhatsApp -->
-  <meta property="og:title" content="PeleGaT | גת אדום סחוט ומרוכז">
-  <meta property="og:description" content="אהלן פלאגת, אשמח להזמין ממך גת">
-  <meta property="og:image" content="map.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeleGaT - פלא-גת | גת איכותי ומפנק</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #12B886;
+            --primary-dark: #0ca678;
+            --accent: #FFD43B;
+            --dark: #121212;
+            --light: #f8f9fa;
+            --card-bg: rgba(255, 255, 255, 0.92);
+            --whatsapp: #25D366;
+            --whatsapp-dark: #1da851;
+        }
 
-  <style>
-    /* איפוס והגדרות בסיס */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Rubik', sans-serif;
+        }
 
-    body {
-      background-color: #fcfbf9;
-      color: #2c2c2c;
-      line-height: 1.6;
-    }
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+        /* Hero Section with background image using original filename */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.5) 0%, rgba(15, 23, 42, 0.85) 100%), 
+                        url('קטע 1.jpg') center/cover no-repeat;
+        }
 
-    /* תפריט עליון */
-    header {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid #f0e6df;
-    }
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
 
-    nav {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
 
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: #8b0000;
-    }
+        .hero h1 span {
+            color: var(--accent);
+            text-shadow: 0 0 15px rgba(255, 212, 59, 0.5);
+        }
 
-    .logo span {
-      color: #2e7d32;
-    }
+        .hero p {
+            font-size: 1.35rem;
+            color: #e2e8f0;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            font-weight: 500;
+        }
 
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 1.5rem;
-    }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--whatsapp);
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+        }
 
-    nav a {
-      font-weight: 600;
-      color: #444;
-      transition: color 0.2s;
-    }
+        .cta-btn:hover {
+            background-color: var(--whatsapp-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6);
+        }
 
-    nav a:hover {
-      color: #8b0000;
-    }
+        /* Section Container */
+        .section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
 
-    /* כפתורי WhatsApp */
-    .btn-wa {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background-color: #25D366;
-      color: white !important;
-      padding: 0.8rem 1.8rem;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-      transition: transform 0.2s, background-color 0.2s;
-    }
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: var(--accent);
+            position: relative;
+        }
 
-    .btn-wa:hover {
-      background-color: #1eb956;
-      transform: translateY(-2px);
-    }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
 
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.8rem 1.8rem;
-      border: 2px solid #8b0000;
-      color: #8b0000;
-      border-radius: 50px;
-      font-weight: 700;
-      margin-right: 0.5rem;
-      transition: background-color 0.2s, color 0.2s;
-    }
+        /* Why PeleGaT Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
 
-    .btn-secondary:hover {
-      background-color: #8b0000;
-      color: white;
-    }
+        .feature-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
 
-    /* סקציות - עיצוב פתוח ללא קופסאות */
-    section {
-      padding: 4rem 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
 
-    /* קטע 1 - פתיחה */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 5rem 1rem 3rem 1rem;
-      background: linear-gradient(180deg, #fffaf5 0%, #fcfbf9 100%);
-    }
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
 
-    .hero h1 {
-      font-size: 3.2rem;
-      color: #8b0000;
-      margin-bottom: 0.5rem;
-    }
+        .feature-card h3 {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
 
-    .hero h2 {
-      font-size: 1.8rem;
-      color: #2e7d32;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-    }
+        .feature-card p {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
 
-    .hero p {
-      font-size: 1.25rem;
-      max-width: 650px;
-      margin-bottom: 2rem;
-      color: #555;
-    }
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
 
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+        .price-card {
+            background: rgba(30, 41, 59, 0.85);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 35px 25px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
 
-    /* קטע 2 - למה פלאגת (קונספט מעבדה ואיכות) */
-    .why-us {
-      text-align: center;
-      background: radial-gradient(circle at center, #ffffff 0%, #f7f3ee 100%);
-      border-radius: 20px;
-      padding: 4rem 2rem;
-      margin-top: 2rem;
-    }
+        .price-card.popular {
+            border-color: var(--accent);
+            box-shadow: 0 0 25px rgba(255, 212, 59, 0.2);
+        }
 
-    .why-us h2 {
-      font-size: 2.4rem;
-      color: #8b0000;
-      margin-bottom: 1rem;
-    }
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: #000000;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
 
-    .why-us .subtitle {
-      font-size: 1.2rem;
-      color: #666;
-      max-width: 700px;
-      margin: 0 auto 3rem auto;
-    }
+        .price-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
 
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-    }
+        .price-card h3 {
+            font-size: 1.6rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
 
-    .feature-item {
-      padding: 1.5rem;
-      text-align: center;
-    }
+        .price-card .desc {
+            color: #94a3b8;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
 
-    .feature-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
+        .price-card .price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
 
-    .feature-item h3 {
-      font-size: 1.3rem;
-      color: #222;
-      margin-bottom: 0.5rem;
-    }
+        /* Delivery Map Section using original image name */
+        .delivery-section {
+            background: rgba(15, 23, 42, 0.9);
+            border-radius: 24px;
+            padding: 40px;
+            margin-top: 40px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-    .feature-item p {
-      color: #666;
-      font-size: 0.98rem;
-    }
+        .map-container {
+            margin-top: 25px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    /* קטע 3 - גדלים ומחירים */
-    .pricing {
-      text-align: center;
-    }
+        .map-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
 
-    .pricing h2 {
-      font-size: 2.4rem;
-      color: #8b0000;
-      margin-bottom: 2.5rem;
-    }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #64748b;
+            font-size: 0.9rem;
+        }
 
-    .price-details {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 3rem;
-      flex-wrap: wrap;
-      margin-bottom: 3rem;
-    }
-
-    .price-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-width: 180px;
-    }
-
-    .price-card svg {
-      width: 60px;
-      height: 60px;
-      fill: #8b0000;
-      margin-bottom: 1rem;
-    }
-
-    .price-card strong {
-      font-size: 1.5rem;
-      color: #222;
-    }
-
-    .price-card span {
-      color: #666;
-      font-size: 1.1rem;
-    }
-
-    .main-price-tag {
-      font-size: 2.8rem;
-      font-weight: 900;
-      color: #2e7d32;
-      margin-bottom: 2rem;
-    }
-
-    /* קטע משלוחים ומפה */
-    .shipping {
-      text-align: center;
-      padding-top: 2rem;
-    }
-
-    .shipping h3 {
-      font-size: 2rem;
-      color: #8b0000;
-      margin-bottom: 1rem;
-    }
-
-    .map-container {
-      margin: 2rem auto;
-      max-width: 600px;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    }
-
-    .map-container img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* שאלות נפוצות */
-    .faq {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .faq h2 {
-      text-align: center;
-      font-size: 2.2rem;
-      color: #8b0000;
-      margin-bottom: 2rem;
-    }
-
-    details {
-      background: #fff;
-      padding: 1rem 1.5rem;
-      margin-bottom: 1rem;
-      border-radius: 10px;
-      border: 1px solid #eee;
-    }
-
-    summary {
-      font-weight: 700;
-      font-size: 1.1rem;
-      cursor: pointer;
-      color: #333;
-    }
-
-    details p {
-      margin-top: 0.8rem;
-      color: #555;
-    }
-
-    /* כפתור WhatsApp צף לנייד */
-    .floating-wa {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      z-index: 9999;
-      background-color: #25D366;
-      color: white;
-      border-radius: 50px;
-      padding: 12px 20px;
-      font-weight: bold;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* פוטר */
-    footer {
-      text-align: center;
-      padding: 3rem 1rem;
-      background: #1a1a1a;
-      color: #eee;
-      margin-top: 4rem;
-    }
-
-    footer .logo {
-      color: #fff;
-      margin-bottom: 0.5rem;
-    }
-
-    /* התאמה לנייד */
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.4rem; }
-      nav ul { display: none; } /* תפריט מופשט לנייד */
-      .price-details { gap: 1.5rem; }
-    }
-  </style>
+        /* Mobile tweaks */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            .section { padding: 50px 15px; }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- תפריט עליון -->
-  <header>
-    <nav>
-      <a href="#" class="logo">Pele<span>GaT</span></a>
-      <ul>
-        <li><a href="#home">בית</a></li>
-        <li><a href="#why">למה פלאגת</a></li>
-        <li><a href="#prices">מחירים והזמנות</a></li>
-        <li><a href="#faq">שאלות נפוצות</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>פלא-גת | <span>PeleGaT</span></h1>
+            <p>הגת האיכותי, הטרי והמשובח ביותר – משלוח מהיר ישר עד אליכם</p>
+            <a href="https://wa.me/?text=%D7%90%D7%94%D7%9C%D7%9F%20%D7%A4%D7%9C%D7%90%D7%92%D7%AA%2C%20%D7%90%D7%A9%D7%9D%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%9E%D7%9A%20%D7%92%D7%AA" class="cta-btn" target="_blank">
+                📱 להזמנה ב-WhatsApp
+            </a>
+        </div>
+    </section>
 
-  <!-- קטע 1 - פתיחה (נקי ללא חלונות וציורים מיותרים) -->
-  <section class="hero" id="home">
-    <h1>גת אדום סחוט ומרוכז</h1>
-    <h2>הטעם שמביא איתו את האווירה</h2>
-    <p>
-      PeleGaT – גת אדום טבעי, סחוט ומרוכז ברמה הגבוהה ביותר.
-      מוכן להזמנה ולמשלוח מהיר עד אליכם.
-    </p>
-    <div class="hero-buttons">
-      <a href="https://wa.me/972544603061?text=%D7%90%D7%90%D7%9C%D7%9F%20%D7%A4%D7%9C%D7%90%D7%92%D7%AA%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%90%D7%90%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%9E%D7%9A%20%D7%92%D7%AA" target="_blank" class="btn-wa">
-        💬 שלחו הודעה ב־WhatsApp
-      </a>
-      <a href="#prices" class="btn-secondary">
-        לצפייה במחירים
-      </a>
-    </div>
-  </section>
+    <!-- Why PeleGaT Section -->
+    <section class="section">
+        <h2 class="section-title">למה פלא-גת?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🌿</span>
+                <h3>איכות ללא פשרות</h3>
+                <p>עלים נבחרים, טריים ועסיסיים במיוחד, שנקטפים ונארזים בתנאים הקפדניים ביותר.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">⚡</span>
+                <h3>משלוח מהיר</h3>
+                <p>מגיעים אליכם במהירות ובטריות מקסימלית כדי שתוכלו ליהנות מחוויה מושלמת.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🎉</span>
+                <h3>מושלם לכל אירוע</h3>
+                <p>למסיבות, ישיבות עם חברים, סופ"ש רגוע או ערב זורם – פלא-גת מרים כל אווירה.</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- קטע 2 - למה פלאגת (קונספט דיוק ומעבדה) -->
-  <section class="why-us" id="why">
-    <h2>למה PeleGaT?</h2>
-    <p class="subtitle">תהליך הכנה מוקפד, סטרילי ומדויק – ממש כמו במעבדה, כדי להבטיח את הטעם והאפקט המרוכז ביותר.</p>
-    
-    <div class="features-grid">
-      <div class="feature-item">
-        <div class="feature-icon">🧪</div>
-        <h3>מיצוי מדויק</h3>
-        <p>גת אדום בתהליך סחיטה מתקדם לשמירה על ריכוז מקסימלי.</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">🌿</div>
-        <h3>100% טבעי</h3>
-        <p>טעם עשיר ואופי ייחודי ללא תוספות מיותרות.</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">❄️</div>
-        <h3>טריות מבוקרת</h3>
-        <p>נשמר בתנאים האופטימליים כדי להגיע אליכם בשיא הטריות.</p>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">🎉</div>
-        <h3>מושלם לאירועים</h3>
-        <p>השילוב המנצח למסיבות טבע, מפגשים ואירועים.</p>
-      </div>
-    </div>
-  </section>
+    <!-- Pricing Section -->
+    <section class="section">
+        <h2 class="section-title">גודל ומחירים</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <div>
+                    <div class="price-icon">🍾</div>
+                    <h3>בקבוק גת אישי</h3>
+                    <p class="desc">מנה מרוכזת ורעננה, קלה לנשיאה ומושלמת לדרך או לערב אישי.</p>
+                </div>
+                <div>
+                    <div class="price">לפי מחירון</div>
+                    <a href="https://wa.me/?text=%D7%90%D7%94%D7%9C%D7%9F%20%D7%A4%D7%9C%D7%90%D7%92%D7%AA%2C%20%D7%90%D7%A9%D7%9D%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%9E%D7%9A%20%D7%92%D7%AA" class="cta-btn" style="width: 100%; justify-content: center;" target="_blank">
+                        להזמנה
+                    </a>
+                </div>
+            </div>
 
-  <!-- קטע 3 - גדלים ומחירים -->
-  <section class="pricing" id="prices">
-    <h2>גדלים ומחירים</h2>
-    
-    <div class="main-price-tag">
-      90 ₪ <span style="font-size: 1.5rem; color: #555;">/ לליטר</span>
-    </div>
+            <div class="price-card popular">
+                <div class="popular-badge">הכי מומלץ</div>
+                <div>
+                    <div class="price-icon">🧺</div>
+                    <h3>סלסלת פיקניק / ישיבות</h3>
+                    <p class="desc">מארז גת עשיר וטרי, מתאים לחלוקה עם חברים, מסיבות ואירועים.</p>
+                </div>
+                <div>
+                    <div class="price">לפי מחירון</div>
+                    <a href="https://wa.me/?text=%D7%90%D7%94%D7%9C%D7%9F%20%D7%A4%D7%9C%D7%90%D7%92%D7%AA%2C%20%D7%90%D7%A9%D7%9D%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%9E%D7%9A%20%D7%92%D7%AA" class="cta-btn" style="width: 100%; justify-content: center;" target="_blank">
+                        להזמנה
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="price-details">
-      <!-- איור בקבוק -->
-      <div class="price-card">
-        <svg viewBox="0 0 24 24">
-          <path d="M19 14v6c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2v-6c0-.55.22-1.05.59-1.41L7 11.17V5c0-.55.45-1 1-1h1V2c0-.55.45-1 1-1h4c.55 0 1 .45 1 1v2h1c.55 0 1 .45 1 1v6.17l1.41 1.42c.37.36.59.86.59 1.41zM11 3v1h2V3h-2zm4 8.59L13.59 10H10.41L9 11.59V20h6v-8.41z"/>
-        </svg>
-        <strong>1.5L</strong>
-        <span>גודל בקבוק</span>
-      </div>
+    <!-- Delivery Map Section -->
+    <section class="section">
+        <div class="delivery-section">
+            <h2 class="section-title" style="margin-bottom: 15px;">אזורי משלוחים</h2>
+            <p style="color: #cbd5e1; max-width: 600px; margin: 0 auto;">מגיעים למגוון רחב של אזורים בארץ! בדקו במפה את אופק החלוקה שלנו והזמינו בקלות.</p>
+            <div class="map-container">
+                <img src="delivery-map.jpg" alt="מפת משלוחים פלא-גת">
+            </div>
+            <div style="margin-top: 30px;">
+                <a href="https://wa.me/?text=%D7%90%D7%94%D7%9C%D7%9F%20%D7%A4%D7%9C%D7%90%D7%92%D7%AA%2C%20%D7%90%D7%A9%D7%9D%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%9E%D7%9A%20%D7%92%D7%AA" class="cta-btn" target="_blank">
+                    🚀 בדיקת זמינות ומשלוח ב-WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
 
-      <!-- איור סלסלת פיקניק -->
-      <div class="price-card">
-        <svg viewBox="0 0 24 24">
-          <path d="M19 10h-2.18l-3.09-5.15c-.24-.4-.69-.65-1.17-.65h-1.12c-.48 0-.93.25-1.17.65L7.18 10H5c-1.1 0-2 .9-2 2v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7c0-1.1-.9-2-2-2zm-6.44-4h.88l2.4 4h-5.68l2.4-4zM19 19H5v-5h14v5z"/>
-        </svg>
-        <strong>4 ליטר</strong>
-        <span>מינימום להזמנה</span>
-      </div>
-    </div>
-
-    <a href="https://wa.me/972544603061?text=%D7%90%D7%90%D7%9C%D7%9F%20%D7%A4%D7%9C%D7%90%D7%92%D7%AA%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%90%D7%90%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%9E%D7%9A%20%D7%92%D7%AA" target="_blank" class="btn-wa">
-      🟢 להזמנה ב־WhatsApp
-    </a>
-
-    <!-- משלוחים ומפה -->
-    <div class="shipping">
-      <h3>🚚 משלוחים לכל הארץ</h3>
-      <p>מזמינים מ-PeleGaT והמשלוח מגיע עד אליכם</p>
-      
-      <div class="map-container">
-        <img src="map.png" alt="מפת משלוחים PeleGaT">
-      </div>
-    </div>
-  </section>
-
-  <!-- קטע שאלות נפוצות -->
-  <section class="faq" id="faq">
-    <h2>שאלות נפוצות</h2>
-    <details>
-      <summary>איך מומלץ לאחסן את המוצר?</summary>
-      <p>המוצר מגיע טרי ומרוכז. מומלץ לשמור במקרר לשימוש מיידי, או בהקפאה לשמירה על טריות לאורך זמן.</p>
-    </details>
-    <details>
-      <summary>תוך כמה זמן מגיע המשלוח?</summary>
-      <p>אנחנו מבצעים משלוחים לכל חלקי הארץ. זמני ההספקה משתנים לפי האזור – לפרטים מדויקים מומלץ לשלוח הודעה ב-WhatsApp.</p>
-    </details>
-    <details>
-      <summary>מה המינימום להזמנה?</summary>
-      <p>מינימום ההזמנה הוא 4 ליטר (ניתן לחלק לבקבוקים של 1.5 ליטר).</p>
-    </details>
-  </section>
-
-  <!-- כפתור WhatsApp צף לטלפון -->
-  <a href="https://wa.me/972544603061?text=%D7%90%D7%90%D7%9C%D7%9F%20%D7%A4%D7%9C%D7%90%D7%92%D7%AA%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%90%D7%90%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%9E%D7%9A%20%D7%92%D7%AA" target="_blank" class="floating-wa">
-    💬 הזמן עכשיו
-  </a>
-
-  <!-- פוטר -->
-  <footer>
-    <div class="logo">Pele<span>GaT</span></div>
-    <p>גת אדום סחוט ומרוכז</p>
-    <p>© PeleGaT. כל הזכויות שמורות.</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 PeleGaT - פלא-גת. כל הזכויות שמורות.</p>
+    </footer>
 
 </body>
 </html>
